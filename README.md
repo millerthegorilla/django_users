@@ -62,6 +62,15 @@ In detail:
 + `EMAIL_PAGE_DOMAIN`: the domain of the confirmation link (usually your site's domain).
 + `EMAIL_MULTI_USER`: (optional) if `True` an error won't be thrown if multiple users with the same email are present (just one will be activated)
 
+You will also need recaptcha settings...
+```
+## RECAPTCHA SETTINGS
+RECAPTCHA_PUBLIC_KEY = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+RECAPTCHA_PRIVATE_KEY = "6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe"
+
+SILENCED_SYSTEM_CHECKS = ['captcha.recaptcha_test_key_error']
+```
+The keys shown here are the test keys that allow you to use the recaptcha in your development setup.  The silenced system check simply silences the warning that is displayed that says that the recaptcha keys are the test keys.
 
 ## dependencies
 django-crispy-forms==1.11.2
