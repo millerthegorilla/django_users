@@ -9,6 +9,9 @@ You will need to set the site domain in the admin app, and also the settings.BAS
 
 ## dependencies
 django-crispy-forms==1.11.2
+
 django-email-verification==0.1.0
+
 django-password-validators==1.4.0
+
 django-recaptcha==2.0.6
