@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: django-users
+Version: 1.0
+Summary: A Django app that offers user account/login/password reset etc functionality, that other apps can extend from.
+Home-page: https://github.com/millerthegorilla/django_users
+Author: James Miller
+Author-email: jamesstewartmiller@gmail.com
+License: MiT  # Example license
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 3.2  # Replace "X.Y" as appropriate
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Requires-Python: >=3.8
+Description-Content-Type: 'text/markdown'
+License-File: LICENSE
+
+# django_users
+a django app that provides basic user functionality, as a foundation for other apps.
+
+## You will need to set the site domain in the admin app, and also the settings.BASE_HTML for the statement `{% extends BASE_HTML %}` in the templates where BASE_HTML comes from the context_processor.
+
+## dependencies
+django-crispy-forms==1.11.2
+django-email-verification==0.1.0
+django-password-validators==1.4.0
+django-recaptcha==2.0.6
+
+
