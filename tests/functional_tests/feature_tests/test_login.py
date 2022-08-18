@@ -18,7 +18,7 @@ scenario = partial(scenario, "../features/login.feature")
 @given('User is on login page')
 def user_is_on_login_page(login_page):
     """User is on login page."""
-    assert(login_page.get_current_url() == LOGIN_PAGE_ADDRESS)
+    assert(login_page.get_current_url() == login_page.domain + LOGIN_PAGE_ADDRESS)
 
 ## SCENARIO 1 of 2
 @scenario('Login to Application')
