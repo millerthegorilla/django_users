@@ -24,6 +24,7 @@ django_users/__pycache__/apps.cpython-310.pyc
 django_users/__pycache__/context_processors.cpython-310.pyc
 django_users/__pycache__/forms.cpython-310.pyc
 django_users/__pycache__/models.cpython-310.pyc
+django_users/__pycache__/tests.cpython-310.pyc
 django_users/__pycache__/urls.cpython-310.pyc
 django_users/__pycache__/views.cpython-310.pyc
 django_users/middleware/__init__.py
@@ -47,3 +48,13 @@ django_users/templates/registration/password_reset_done.html
 django_users/templates/registration/password_reset_email.html
 django_users/templates/registration/password_reset_form.html
 django_users/templates/registration/password_reset_subject.txt
+django_users_test_project/__init__.py
+django_users_test_project/asgi.py
+django_users_test_project/settings.py
+django_users_test_project/urls.py
+django_users_test_project/wsgi.py
+functional_tests/__init__.py
+functional_tests/base.py
+functional_tests/login_page.py
+functional_tests/server_tools.py
+functional_tests/test_login.py

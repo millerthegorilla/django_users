@@ -1,0 +1,15 @@
+factory_boy
+## pytest and plugins
+pytest
+seleniumbase # pytest selenium plugin
+pytest-mock # wrapper around unittest.mock that adds functionality
+pytest-cov # provides coverage statistics
+pytest-django # wraps django testcase
+pytest-randomly # randomises order of tests to prevent inter test reliance
+pytest-clarity # makes pytest output pretty
+pytest-bdd # allows functional tests specified in 
+# pytest-sugar # more prettyfication of results - need to check it works with pytest-clarity
+pytest-xdist # for parallel processing of tests pytest -n [ NUMCPUS | auto ]
+pytest-rerunfailures # for running tests multiple times
+# pytest-picked # runs tests only on git uncommitted tests
+# pytest-tldr # shortens the output to essential info only

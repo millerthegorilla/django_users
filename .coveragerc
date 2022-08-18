@@ -1,0 +1,6 @@
+[run]
+omit = tests/*
+	   *settings.py
+	   *__init__.py
+
+source = .

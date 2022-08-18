@@ -2,6 +2,7 @@ import uuid  # used as custom salt
 
 from django import shortcuts, forms
 from django.contrib import auth
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views import generic
 from django import urls, http, forms
 
@@ -48,3 +49,9 @@ class ResendConfirmation(generic.FormView):
             form.errors = [
                 {'username': 'Hey you haven\'t registered yet.  Register first!'}]
             return shortcuts.render(self.request, self.template_name, {form: form})
+
+
+class Profile(LoginRequiredMixin, generic.View):
+    template_name = 'django_users/profile.html'
+    def get(self, request):
+        return shortcuts.render(request, self.template_name)

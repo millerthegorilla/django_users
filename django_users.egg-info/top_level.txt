@@ -1,1 +1,3 @@
 django_users
+django_users_test_project
+functional_tests

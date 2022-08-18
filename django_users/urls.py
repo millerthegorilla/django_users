@@ -25,6 +25,9 @@ urlpatterns = [
         'accounts/register/',
         users_views.Register.as_view(),
         name='register'),
+    urls.path('accounts/profile/',
+              users_views.Profile.as_view(),
+              name="profile"),
     urls.path(
         'accounts/',
         urls.include(auth_urls)),

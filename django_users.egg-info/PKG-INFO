@@ -6,7 +6,6 @@ Home-page: https://github.com/millerthegorilla/django_users
 Author: James Miller
 Author-email: jamesstewartmiller@gmail.com
 License: MiT  # Example license
-Platform: UNKNOWN
 Classifier: Environment :: Web Environment
 Classifier: Framework :: Django
 Classifier: Framework :: Django :: 3.2  # Replace "X.Y" as appropriate
@@ -103,5 +102,3 @@ django-crispy-forms==1.11.2
 django-email-verification==0.1.0
 django-password-validators==1.4.0
 django-recaptcha==2.0.6
-
-
