@@ -22,68 +22,69 @@ BASE_HTML = "django_users/base.html"
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-)6g^go@h2l@@xf+8hqhezr0hrmqvi-j$pgy6!*(n@^rx#y!54-'
+SECRET_KEY = "django-insecure-)6g^go@h2l@@xf+8hqhezr0hrmqvi-j$pgy6!*(n@^rx#y!54-"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
 
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'django_users',
-    'crispy_forms',
-    'crispy_bootstrap5',
-    'captcha',
-    'django_email_verification',
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+    "django_users",
+    "crispy_forms",
+    "crispy_bootstrap5",
+    "captcha",
+    "django_email_verification",
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "django.middleware.security.SecurityMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = 'django_users_test_project.urls'
+ROOT_URLCONF = "django_users_test_project.urls"
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-                'django_users.context_processors.base_html',
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
+                "django_users.context_processors.base_html",
+                "django_users.context_processors.siteName",
             ],
         },
     },
 ]
 
-WSGI_APPLICATION = 'django_users_test_project.wsgi.application'
+WSGI_APPLICATION = "django_users_test_project.wsgi.application"
 
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
     }
 }
 
@@ -110,9 +111,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = "UTC"
 
 USE_I18N = True
 
@@ -122,27 +123,28 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = "static/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # DJANGO-EMAIL-VERIFICATION SETTINGS
 def verified_callback(user):
     user.is_active = True
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 EMAIL_VERIFIED_CALLBACK = verified_callback
-EMAIL_ACTIVE_FIELD = 'is_active'
+EMAIL_ACTIVE_FIELD = "is_active"
 EMAIL_HOST_USER = "test@django_users.com"
 EMAIL_FROM_ADDRESS = "noreply@django_users.com"
-EMAIL_MAIL_SUBJECT = 'Confirm your email'
-EMAIL_MAIL_HTML = 'emails/mail_body.html'
-EMAIL_MAIL_PLAIN = 'emails/mail_body.txt'
-EMAIL_PAGE_TEMPLATE = 'registration/confirm.html'
-EMAIL_PAGE_DOMAIN = 'http://127.0.0.1:8000'
+EMAIL_MAIL_SUBJECT = "Confirm your email"
+EMAIL_MAIL_HTML = "emails/mail_body.html"
+EMAIL_MAIL_PLAIN = "emails/mail_body.txt"
+EMAIL_PAGE_TEMPLATE = "registration/confirm.html"
+EMAIL_PAGE_DOMAIN = "http://127.0.0.1:8000"
 EMAIL_TOKEN_LIFE = 60 * 60 * 24
 CUSTOM_SALT = "asdfasdfasdffasdfa234234"
 
@@ -150,4 +152,6 @@ CUSTOM_SALT = "asdfasdfasdffasdfa234234"
 RECAPTCHA_PUBLIC_KEY = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
 RECAPTCHA_PRIVATE_KEY = "6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe"
 
-SILENCED_SYSTEM_CHECKS = ['captcha.recaptcha_test_key_error']
+SILENCED_SYSTEM_CHECKS = ["captcha.recaptcha_test_key_error"]
+
+SITE_NAME = "django_users_test"

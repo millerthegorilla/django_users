@@ -13,3 +13,14 @@ pytest-xdist # for parallel processing of tests pytest -n [ NUMCPUS | auto ]
 pytest-rerunfailures # for running tests multiple times
 # pytest-picked # runs tests only on git uncommitted tests
 # pytest-tldr # shortens the output to essential info only
+flake8 # for sublimelinter
+flake8-bugbear
+pep8-naming
+flake8-builtins
+#flake8-docstrings
+#darglint
+flake8-isort  # use isort manually...
+flake8-comprehensions
+flake8-bandit
+flake8-eradicate
+flake8-pytest-style

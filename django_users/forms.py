@@ -1,12 +1,9 @@
-from fuzzywuzzy import fuzz
-
-from captcha import fields as captcha_fields, widgets as captcha_widgets 
-from crispy_forms import helper, layout
+from captcha import fields as captcha_fields
+from captcha import widgets as captcha_widgets
 from crispy_bootstrap5 import bootstrap5
-
+from crispy_forms import helper, layout
 from django import forms, urls
 from django.contrib import auth
-from django.contrib.auth import get_user_model
 from django.contrib.auth.models import User
 
 
@@ -91,8 +88,9 @@ class UserResendConfirmation(forms.Form):
             if user.is_active:
                 self.valid = False
                 self.add_error(
-                    'username', 
-                    'Hey, you are already a registered member, perhaps you want to reset your password?')
+                    'username',
+                    'Hey, you are already a registered member,'
+                    'perhaps you want to reset your password?')
                 return username
         except auth.models.User.DoesNotExist:
             self.valid = False
