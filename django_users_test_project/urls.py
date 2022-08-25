@@ -15,9 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from django_email_verification import urls as email_urls  # include the urls
 
 from django_users import urls as django_users_urls
-from django_email_verification import urls as email_urls  # include the urls
 
 urlpatterns = [
     path("admin/", admin.site.urls),

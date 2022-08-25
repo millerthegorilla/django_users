@@ -135,7 +135,7 @@ def verified_callback(user):
     user.is_active = True
 
 
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+EMAIL_BACKEND = "django.core.mail.backends.locmem.EmailBackend"  # "django.core.mail.backends.console.EmailBackend"
 EMAIL_VERIFIED_CALLBACK = verified_callback
 EMAIL_ACTIVE_FIELD = "is_active"
 EMAIL_HOST_USER = "test@django_users.com"

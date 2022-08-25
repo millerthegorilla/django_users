@@ -23,7 +23,7 @@ class Register(generic.edit.CreateView):
         user.is_active = False
         user.save()
         send_email(user)
-        return shortcuts.redirect(self.success_url)  #'password_reset_done')
+        return shortcuts.redirect(self.success_url)
 
 
 class ResendConfirmation(generic.FormView):
