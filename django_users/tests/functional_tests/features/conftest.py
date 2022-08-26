@@ -34,13 +34,14 @@ except AttributeError:
 
 
 @pytest.fixture()
-def browser(sb, live_server):
+def browser(sb, live_server, settings):
     staging_server = os.environ.get("STAGING_SERVER")
     if staging_server:
         sb.visit(staging_server)
     else:
         sb.visit(live_server)
     sb.domain = sb.get_domain_url(sb.get_current_url())
+    settings.EMAIL_PAGE_DOMAIN = sb.domain
     sb.pages = PAGES_DICT
     sb.links = LINKS_DICT
     return sb
@@ -87,11 +88,6 @@ def user_details(faker):
     return UserDetails()
 
 
-# @pytest.fixture()
-# def user_details(faker):
-#     return UserDetails()
-
-
 # Shared steps
 @then("I should see the username input")
 def i_should_see_the_username_input(page):
@@ -114,12 +110,3 @@ def user(
     )
     yield user
     user.delete()
-
-
-# @pytest.fixture(scope="function")
-# def skip_step(request):  # noqa: PT004
-#     breakpoint()
-#     # user = {}
-#     # user["message"] = ""
-#     # yield user
-#     pytest.skip("bob")  # user["message"])

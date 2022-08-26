@@ -3,6 +3,8 @@ import random
 import time
 
 from django.core import mail
+from django.contrib.auth import get_user_model
+from selenium.webdriver.common.by import By
 from pytest_bdd import given, scenarios, then, when
 import pytest
 
@@ -11,7 +13,7 @@ EXTRA_TYPES = {
 }
 
 scenarios("../register.feature")
-
+User = get_user_model()
 
 # SHARED STEPS - could go in conftest.py - but is appropriate for this file.
 @given("User is on registration page", target_fixture="page")
@@ -20,10 +22,7 @@ def user_is_on_register_page(registration_page):
     return registration_page
 
 
-# @then("I should see the username input")
-# def i_should_see_the_username_input(page):
-#     """I should see the username box."""
-#     page.assert_element("#id_username")
+# @then("I should see the username input") - shared in conftest.py
 
 
 @then("I should see the password input")
@@ -79,30 +78,28 @@ def clicks_on_recaptcha(page):
         "span.recaptcha-checkbox.goog-inline-block.recaptcha-checkbox-unchecked.rc-anchor-checkbox"  # noqa: E501
     )
     page.switch_to_default_content()
+    time.sleep(1)  # important! captcha needs time to execute
 
 
-# @when("clicks on submit button") shared.  ../../conftext.py
-# @when("clicks on submit button")
-# def clicks_on_submit_button(page, db):
-#     """clicks on submit button."""
-#     page.click('button[type="submit"]')
+# @when("clicks on submit button") - shared in conftest.py
+
+
+@then("an email is sent to the user's email address", target_fixture="confirm_link")
+def an_email_is_sent_to_the_users_email_addresss(mailoutbox, user_details, request, sb):
+    m = mailoutbox[0]
+    assert m.subject == "Confirm your email"
+    # assert m.body == "body"
+    assert m.from_email == "noreply@django_users.com"
+    assert list(m.to) == [user_details.email]
+    return m.extra_headers["LINK"]
+
+
+@then("User is able to follow link to successfully register")
+def user_is_able_to_successfully_register(confirm_link, sb):
+    sb.open(confirm_link)
+    sb.assert_text("your account is confirmed", selector=".message", by=By.CSS_SELECTOR)
 
 
 @then("User is able to see registration confirmation page")
 def user_is_able_to_see_registration_confirmation_page(page, confirmation_page):
     assert page.get_current_url() == confirmation_page.get_current_url()
-
-
-@then("an email is sent to the user's email address")
-def an_email_is_sent_to_the_users_email_addresss(mailoutbox):
-    # skip_step[
-    #     "message"
-    # ] = "doesn't work in headless mode (requires --gui --demo to pytest"
-    try:
-        m = mailoutbox[0]
-        assert m.subject == "Confirm your email"
-        # assert m.body == "body"
-        assert m.from_email == "noreply@django_users.com"
-        # assert list(m.to) == [user_details["email"]]
-    except IndexError:
-        pass

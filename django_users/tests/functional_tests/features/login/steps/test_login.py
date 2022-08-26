@@ -17,10 +17,7 @@ def user_is_on_login_page(login_page):
     return login_page
 
 
-# @then("I should see the username input")
-# def i_should_see_the_username_input(page):
-#     """I should see the username box."""
-#     page.assert_element("#id_username")
+# @then("I should see the username input") shared in conftest.py
 
 
 @then("I should see the password input")
@@ -54,11 +51,7 @@ def user_fills_valid_username_and_password(page, user_details):
     page.type("#id_password", user_details.password)
 
 
-# @when("clicks on submit button") shared.  ../../conftext.py
-# @when("clicks on submit button")
-# def clicks_on_submit_button(page, db):
-#     """clicks on submit button."""
-#     page.click('button[type="submit"]')
+# @when("clicks on submit button") - shared in conftest.py
 
 
 @then("User is able to login and view landing page")

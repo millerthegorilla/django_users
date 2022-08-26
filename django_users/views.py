@@ -22,6 +22,7 @@ class Register(generic.edit.CreateView):
             user = form.save()
         user.is_active = False
         user.save()
+        print("bob")
         send_email(user)
         return shortcuts.redirect(self.success_url)
 

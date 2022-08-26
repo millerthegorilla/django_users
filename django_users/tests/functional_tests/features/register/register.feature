@@ -9,14 +9,16 @@ Feature: Registration page
         And I should see the resend confirmation link
         And I should see a submit button
 
-
+    @locutus
+    @flaky("django_email_verification thread flakes when run with other tests, solution is to run this feature on its own.")
     Scenario: Register to use application
         Given User is on registration page
         When User completes valid details
         And clicks on recaptcha
         And clicks on submit button
-        Then User is able to see registration confirmation page
-        And an email is sent to the user's email address
+        Then an email is sent to the user's email address
+        And User is able to follow link to successfully register
+        And User is able to see registration confirmation page
 ##
     #Scenario: User can visit the resend confirmation page
         #Given User is on registration page
