@@ -1,36 +1,47 @@
 import os
 import random
 import time
-from faker import Faker
+
 import pytest
 from django.conf import settings
 from django.contrib.auth import get_user_model
+from django.urls import reverse
+from faker import Faker
 from pytest_bdd import then, when
+from selenium.webdriver.common.by import By
 
 User = get_user_model()
 
-REGISTER_URL = "/accounts/register/"
-LOGIN_URL = "/accounts/login/"
-PASSWORD_RESET_URL = "/accounts/password_reset/"
-RESEND_CONFIRM_URL = "/accounts/resend_confirmation/"
+RECAPTCHA_SLEEP_INTERVAL = 2
 
+REGISTER_URL = reverse("register")
 try:
     LANDING_URL = settings.LOGIN_REDIRECT
 except AttributeError:
     LANDING_URL = "/accounts/profile/"
+CONFIRMATION_URL = reverse("confirmation_sent")
+LOGIN_URL = reverse("login")
+RESEND_CONFIRM_URL = reverse("resend_confirmation")
+PASSWORD_RESET_URL = reverse("password_reset")
+PASSWORD_RESET_DONE_URL = reverse("password_reset_done")
+PASSWORD_RESET_CONFIRM_URL = "accounts/reset/Ng/set-password/"
+PASSWORD_RESET_COMPLETE_URL = reverse("password_reset_complete")
 
-    LINKS_DICT = {
-        "registration": f"a[href='{REGISTER_URL}']",
-        "reset_password": f"a[href='{PASSWORD_RESET_URL}']",
-        "resend_confirmation": f"a[href='{RESEND_CONFIRM_URL}']",
-    }
 
-    PAGES_DICT = {
-        "login": LOGIN_URL,
-        "registration": REGISTER_URL,
-        "reset_password": PASSWORD_RESET_URL,
-        "resend_confirmation": RESEND_CONFIRM_URL,
-    }
+LINKS_DICT = {
+    "registration": f"a[href='{REGISTER_URL}']",
+    "reset_password": f"a[href='{PASSWORD_RESET_URL}']",
+    "resend_confirmation": f"a[href='{RESEND_CONFIRM_URL}']",
+}
+
+PAGES_DICT = {
+    "login": LOGIN_URL,
+    "registration": REGISTER_URL,
+    "reset_password": PASSWORD_RESET_URL,
+    "resend_confirmation": RESEND_CONFIRM_URL,
+    "password_reset_done": PASSWORD_RESET_DONE_URL,
+    "password_reset_confirm": PASSWORD_RESET_CONFIRM_URL,
+}
 
 
 @pytest.fixture()
@@ -66,8 +77,38 @@ def registration_page(browser):
 
 
 @pytest.fixture()
-def confirmation_page(browser):
+def resend_confirmation_page(browser):
     browser.visit(browser.domain + RESEND_CONFIRM_URL)
+    return browser
+
+
+@pytest.fixture()
+def confirmation_page(browser):
+    browser.visit(browser.domain + CONFIRMATION_URL)
+    return browser
+
+
+@pytest.fixture()
+def reset_password_page(browser):
+    browser.visit(browser.domain + PASSWORD_RESET_URL)
+    return browser
+
+
+@pytest.fixture()
+def reset_password_done_page(browser):
+    browser.visit(browser.domain + PASSWORD_RESET_DONE_URL)
+    return browser
+
+
+@pytest.fixture()
+def reset_password_confirm_page(browser):
+    browser.visit(browser.domain + PASSWORD_RESET_CONFIRM_URL)
+    return browser
+
+
+@pytest.fixture()
+def reset_password_complete_page(browser):
+    browser.visit(browser.domain + PASSWORD_RESET_COMPLETE_URL)
     return browser
 
 
@@ -95,18 +136,58 @@ def i_should_see_the_username_input(page):
     page.assert_element("#id_username")
 
 
+@when("clicks on recaptcha")
+def clicks_on_recaptcha(page):
+    page.switch_to_frame(
+        "iframe[src^='https://www.google.com/recaptcha/api2/anchor?']", timeout=10
+    )
+    page.click(
+        "span.recaptcha-checkbox.goog-inline-block.recaptcha-checkbox-unchecked.rc-anchor-checkbox"  # noqa: E501
+    )
+    page.switch_to_default_content()
+    time.sleep(RECAPTCHA_SLEEP_INTERVAL)  # important! captcha needs time to execute
+
+
 @when("clicks on submit button")
+@then("clicks on submit button")
 def clicks_on_submit_button(page, db):
     """clicks on submit button."""
     page.click('button[type="submit"]')
 
 
+@then("User is able to see registration confirmation page")
+def user_is_able_to_see_registration_confirmation_page(page, confirmation_page):
+    assert page.get_current_url() == confirmation_page.get_current_url()
+
+
+@then("required warning is visible")
+def required_warning_is_visible(page):
+    page.assert_element("input:required", by=By.CSS_SELECTOR)
+
+
+@when("User enters valid username")
+def user_enters_valid_username(page, user_details):
+    page.type("#id_username", user_details.username)
+
+
+@when("User enters valid email address")
+def user_enters_valid_email_address(page, user_details):
+    page.type("#id_email", user_details.email)
+
+
 @pytest.fixture()
-def user(
-    transactional_db, login_user_details
-):  # transactional_db because using live_server
+def user(transactional_db, user_details):  # transactional_db because using live_server
     user = User.objects.create(
-        username=login_user_details.username, password=login_user_details.password
+        username=user_details.username,
+        password=user_details.password,
+        email=user_details.email,
     )
     yield user
     user.delete()
+
+
+@pytest.fixture()
+def active_user(user):
+    user.is_active = True
+    user.save()
+    return user

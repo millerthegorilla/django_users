@@ -1,5 +1,5 @@
 from django import urls
-from django.contrib.auth import urls as auth_urls
+from django.conf import settings
 from django.contrib.auth import views as auth_views
 
 from . import forms as users_forms
@@ -15,6 +15,7 @@ urlpatterns = [
         auth_views.PasswordResetView.as_view(
             template_name="django_users/resend_form.html",
             form_class=users_forms.UserPasswordReset,
+            from_email=settings.EMAIL_FROM_ADDRESS,
             extra_context={"instructions": "Send a password reset link..."},
         ),
         name="password_reset",
@@ -33,5 +34,10 @@ urlpatterns = [
     ),
     urls.path("accounts/register/", users_views.Register.as_view(), name="register"),
     urls.path("accounts/profile/", users_views.Profile.as_view(), name="profile"),
-    urls.path("accounts/", urls.include(auth_urls)),
+    urls.path("accounts//", users_views.Profile.as_view(), name="profile"),
+    # urls.path(
+    #     "accounts/password_reset/done/",
+    #     auth_views.PasswordResetDone.as_view(),
+    #     name="password_reset_done",
+    # ),
 ]

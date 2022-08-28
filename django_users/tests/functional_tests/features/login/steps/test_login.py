@@ -1,6 +1,6 @@
 """Login page feature tests."""
-from django.contrib.auth import get_user_model
 import pytest
+from django.contrib.auth import get_user_model
 from pytest_bdd import given, parsers, scenarios, then, when
 
 EXTRA_TYPES = {
@@ -62,7 +62,7 @@ def user_is_able_to_login_and_view_landing_page(page, landing_page):
 
 @when(parsers.cfparse('User clicks "{link:String}" link', extra_types=EXTRA_TYPES))
 def user_clicks_link(link, page):
-    """User is able to visit registration page"""
+    """User is able to view and click [ reset password | registration ] link"""
     page.click(page.links[link])
 
 

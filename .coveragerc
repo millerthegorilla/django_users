@@ -1,6 +1,12 @@
 [run]
-omit = tests/*
+omit = django_users/tests/*
 	   *settings.py
 	   *__init__.py
+	   *wsgi.py
+	   *asgi.py
+	   *manage.py
+	   *setup.py
+	   *fields.py
+	   *tests.py
 
 source = .

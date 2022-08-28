@@ -2,11 +2,11 @@
 import random
 import time
 
-from django.core import mail
-from django.contrib.auth import get_user_model
-from selenium.webdriver.common.by import By
-from pytest_bdd import given, scenarios, then, when
 import pytest
+from django.contrib.auth import get_user_model
+from django.core import mail
+from pytest_bdd import given, scenarios, then, when
+from selenium.webdriver.common.by import By
 
 EXTRA_TYPES = {
     "String": str,
@@ -69,37 +69,63 @@ def user_completes_valid_details(page, user_details):
     page.type("#id_email", user_details.email)
 
 
-@when("clicks on recaptcha")
-def clicks_on_recaptcha(page):
-    page.switch_to_frame(
-        "iframe[src^='https://www.google.com/recaptcha/api2/anchor?']", timeout=10
-    )
-    page.click(
-        "span.recaptcha-checkbox.goog-inline-block.recaptcha-checkbox-unchecked.rc-anchor-checkbox"  # noqa: E501
-    )
-    page.switch_to_default_content()
-    time.sleep(1)  # important! captcha needs time to execute
+# @when("clicks on recaptcha") - shared in conftest.py
 
 
 # @when("clicks on submit button") - shared in conftest.py
 
 
 @then("an email is sent to the user's email address", target_fixture="confirm_link")
-def an_email_is_sent_to_the_users_email_addresss(mailoutbox, user_details, request, sb):
+def an_email_is_sent_to_the_users_email_addresss(
+    mailoutbox, user_details, request, page, settings
+):
     m = mailoutbox[0]
     assert m.subject == "Confirm your email"
     # assert m.body == "body"
-    assert m.from_email == "noreply@django_users.com"
+    assert m.from_email == settings.EMAIL_FROM_ADDRESS
     assert list(m.to) == [user_details.email]
     return m.extra_headers["LINK"]
 
 
-@then("User is able to follow link to successfully register")
+@then("User is able to follow email link to successfully register")
 def user_is_able_to_successfully_register(confirm_link, sb):
     sb.open(confirm_link)
     sb.assert_text("your account is confirmed", selector=".message", by=By.CSS_SELECTOR)
 
 
-@then("User is able to see registration confirmation page")
-def user_is_able_to_see_registration_confirmation_page(page, confirmation_page):
-    assert page.get_current_url() == confirmation_page.get_current_url()
+# @then("User is able to see registration confirmation page") - shared in conftest.py
+
+
+@when("User clicks resend confirmation link")
+def user_clicks_link(page):
+    """User is able to view and click [ reset password | registration ] link"""
+    page.click(page.links["resend_confirmation"])
+
+
+@then("User is taken to resend confirmation page")
+def user_is_taken_to_page(page, resend_confirmation_page):
+    """User is able to visit [ reset password | registration ] page"""
+    assert page.get_current_url() == resend_confirmation_page.get_current_url()
+
+
+# @when("User enters valid email address") - shared in conftest.py
+
+
+@when("User enters valid password1")
+def user_enters_valid_password1(page, user_details):
+    page.type("#id_password1", user_details.password)
+
+
+@when("User enters valid password2")
+def user_enters_valid_password2(page, user_details):
+    page.type("#id_password2", user_details.password)
+
+
+@when("User enters incorrect email address")
+def user_enters_incorrect_email_address(page):
+    page.type("#id_email", "bob@bob")
+
+
+@then("invalid email message is visible")
+def invalid_email_message_is_visible(page):
+    page.assert_element("#error_1_id_email", by=By.CSS_SELECTOR)
