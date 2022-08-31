@@ -1,4 +1,3 @@
-factory_boy
 ## pytest and plugins
 pytest
 seleniumbase # pytest selenium plugin

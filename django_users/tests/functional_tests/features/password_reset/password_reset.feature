@@ -1,5 +1,5 @@
 Feature: Reset password page
-    @locutus
+
     Scenario: User can reset password
         Given User is on reset password page
         When User enters valid email address

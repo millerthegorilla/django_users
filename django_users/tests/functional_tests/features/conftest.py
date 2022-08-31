@@ -1,16 +1,11 @@
 import os
-import random
 import time
 
 import pytest
 from django.conf import settings
-from django.contrib.auth import get_user_model
 from django.urls import reverse
-from faker import Faker
 from pytest_bdd import then, when
 from selenium.webdriver.common.by import By
-
-User = get_user_model()
 
 RECAPTCHA_SLEEP_INTERVAL = 2
 
@@ -112,23 +107,6 @@ def reset_password_complete_page(browser):
     return browser
 
 
-class UserDetails:
-    def __init__(self):
-        fake = Faker()
-        fake.random.seed(random.randint(0, 999))
-        self.first_name = fake.first_name()
-        self.last_name = fake.last_name()
-        self.domain = fake.domain_name()
-        self.username = self.first_name + str(random.randint(101, 999))
-        self.password = fake.password(14)
-        self.email = self.first_name + "_" + self.last_name + "@" + self.domain
-
-
-@pytest.fixture()
-def user_details(faker):
-    return UserDetails()
-
-
 # Shared steps
 @then("I should see the username input")
 def i_should_see_the_username_input(page):
@@ -173,21 +151,3 @@ def user_enters_valid_username(page, user_details):
 @when("User enters valid email address")
 def user_enters_valid_email_address(page, user_details):
     page.type("#id_email", user_details.email)
-
-
-@pytest.fixture()
-def user(transactional_db, user_details):  # transactional_db because using live_server
-    user = User.objects.create(
-        username=user_details.username,
-        password=user_details.password,
-        email=user_details.email,
-    )
-    yield user
-    user.delete()
-
-
-@pytest.fixture()
-def active_user(user):
-    user.is_active = True
-    user.save()
-    return user

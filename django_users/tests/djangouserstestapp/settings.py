@@ -33,7 +33,7 @@ ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
 # Application definition
 
 INSTALLED_APPS = [
-    "django_users",
+    "django_users.tests.djangouserstestapp.apps.DjangoUsersTestApp",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -76,8 +76,6 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "django_users_test_project.wsgi.application"
-
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
@@ -85,7 +83,7 @@ WSGI_APPLICATION = "django_users_test_project.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        "NAME": "mem_db",
     }
 }
 
@@ -120,12 +118,6 @@ USE_I18N = True
 
 USE_TZ = True
 
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.1/howto/static-files/
-
-STATIC_URL = "static/"
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
@@ -155,4 +147,4 @@ RECAPTCHA_PRIVATE_KEY = "6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe"
 
 SILENCED_SYSTEM_CHECKS = ["captcha.recaptcha_test_key_error"]
 
-SITE_NAME = "django_users_test"
+SITE_NAME = "django_users_test_app"

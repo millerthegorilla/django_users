@@ -4,7 +4,6 @@ from crispy_bootstrap5 import bootstrap5
 from crispy_forms import helper, layout
 from django import forms, urls
 from django.contrib import auth
-from django.contrib.auth.models import User
 
 
 class CustomUserCreation(auth.forms.UserCreationForm):
