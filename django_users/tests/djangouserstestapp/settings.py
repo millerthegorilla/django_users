@@ -33,7 +33,7 @@ ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
 # Application definition
 
 INSTALLED_APPS = [
-    "django_users.tests.djangouserstestapp.apps.DjangoUsersTestApp",
+    "django_users.tests.djangouserstestapp.apps.DjangoUsersTestAppConfig",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -128,7 +128,7 @@ def verified_callback(user):
     user.is_active = True
 
 
-EMAIL_BACKEND = "django.core.mail.backends.locmem.EmailBackend"  # "django.core.mail.backends.console.EmailBackend"
+EMAIL_BACKEND = "django.core.mail.backends.locmem.EmailBackend"  # "django.core.mail.backends.console.EmailBackend"  # noqa: E501
 EMAIL_VERIFIED_CALLBACK = verified_callback
 EMAIL_ACTIVE_FIELD = "is_active"
 EMAIL_HOST_USER = "test@django_users.com"
