@@ -1,0 +1,213 @@
+action: GLOB, msg: packaging
+cwd: /var/home/dev/src/ceramic_isles_tests/django_users
+cmd: /var/home/dev/src/ceramic_isles_tests/venv/bin/python setup.py sdist --formats=zip --dist-dir .tox/dist
+running sdist
+running egg_info
+writing django_users.egg-info/PKG-INFO
+writing dependency_links to django_users.egg-info/dependency_links.txt
+writing top-level names to django_users.egg-info/top_level.txt
+reading manifest file 'django_users.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+warning: no files found matching 'docs/*'
+adding license file 'LICENSE'
+writing manifest file 'django_users.egg-info/SOURCES.txt'
+running check
+creating django_users-1.0
+creating django_users-1.0/django_users
+creating django_users-1.0/django_users.egg-info
+creating django_users-1.0/django_users/middleware
+creating django_users-1.0/django_users/static
+creating django_users-1.0/django_users/static/django_users
+creating django_users-1.0/django_users/static/django_users/css
+creating django_users-1.0/django_users/templates
+creating django_users-1.0/django_users/templates/django_users
+creating django_users-1.0/django_users/templates/emails
+creating django_users-1.0/django_users/templates/fields
+creating django_users-1.0/django_users/templates/registration
+creating django_users-1.0/django_users/tests
+creating django_users-1.0/django_users/tests/djangouserstestapp
+creating django_users-1.0/django_users/tests/functional_tests
+creating django_users-1.0/django_users/tests/functional_tests/features
+creating django_users-1.0/django_users/tests/functional_tests/features/login
+creating django_users-1.0/django_users/tests/functional_tests/features/login/steps
+creating django_users-1.0/django_users/tests/functional_tests/features/password_reset
+creating django_users-1.0/django_users/tests/functional_tests/features/password_reset/steps
+creating django_users-1.0/django_users/tests/functional_tests/features/register
+creating django_users-1.0/django_users/tests/functional_tests/features/register/steps
+creating django_users-1.0/django_users/tests/functional_tests/features/resend_confirmation
+creating django_users-1.0/django_users/tests/functional_tests/features/resend_confirmation/steps
+creating django_users-1.0/django_users/tests/unit_tests
+copying files to django_users-1.0...
+copying LICENSE -> django_users-1.0
+copying MANIFEST.in -> django_users-1.0
+copying README.md -> django_users-1.0
+copying pyproject.toml -> django_users-1.0
+copying setup.cfg -> django_users-1.0
+copying setup.py -> django_users-1.0
+copying django_users/__init__.py -> django_users-1.0/django_users
+copying django_users/admin.py -> django_users-1.0/django_users
+copying django_users/apps.py -> django_users-1.0/django_users
+copying django_users/context_processors.py -> django_users-1.0/django_users
+copying django_users/fields.py -> django_users-1.0/django_users
+copying django_users/forms.py -> django_users-1.0/django_users
+copying django_users/models.py -> django_users-1.0/django_users
+copying django_users/tests.py -> django_users-1.0/django_users
+copying django_users/urls.py -> django_users-1.0/django_users
+copying django_users/views.py -> django_users-1.0/django_users
+copying django_users.egg-info/PKG-INFO -> django_users-1.0/django_users.egg-info
+copying django_users.egg-info/SOURCES.txt -> django_users-1.0/django_users.egg-info
+copying django_users.egg-info/dependency_links.txt -> django_users-1.0/django_users.egg-info
+copying django_users.egg-info/top_level.txt -> django_users-1.0/django_users.egg-info
+copying django_users/middleware/__init__.py -> django_users-1.0/django_users/middleware
+copying django_users/static/django_users/css/balloons.css -> django_users-1.0/django_users/static/django_users/css
+copying django_users/templates/django_users/base.html -> django_users-1.0/django_users/templates/django_users
+copying django_users/templates/django_users/profile.html -> django_users-1.0/django_users/templates/django_users
+copying django_users/templates/django_users/register.html -> django_users-1.0/django_users/templates/django_users
+copying django_users/templates/django_users/registration_confirmation_sent.html -> django_users-1.0/django_users/templates/django_users
+copying django_users/templates/django_users/resend_form.html -> django_users-1.0/django_users/templates/django_users
+copying django_users/templates/emails/mail_body.html -> django_users-1.0/django_users/templates/emails
+copying django_users/templates/emails/mail_body.txt -> django_users-1.0/django_users/templates/emails
+copying django_users/templates/fields/users_app_file_input.html -> django_users-1.0/django_users/templates/fields
+copying django_users/templates/fields/users_app_floating_field.html -> django_users-1.0/django_users/templates/fields
+copying django_users/templates/registration/confirm.html -> django_users-1.0/django_users/templates/registration
+copying django_users/templates/registration/login.html -> django_users-1.0/django_users/templates/registration
+copying django_users/templates/registration/password_change_done.html -> django_users-1.0/django_users/templates/registration
+copying django_users/templates/registration/password_change_form.html -> django_users-1.0/django_users/templates/registration
+copying django_users/templates/registration/password_reset_complete.html -> django_users-1.0/django_users/templates/registration
+copying django_users/templates/registration/password_reset_confirm.html -> django_users-1.0/django_users/templates/registration
+copying django_users/templates/registration/password_reset_done.html -> django_users-1.0/django_users/templates/registration
+copying django_users/templates/registration/password_reset_email.html -> django_users-1.0/django_users/templates/registration
+copying django_users/templates/registration/password_reset_form.html -> django_users-1.0/django_users/templates/registration
+copying django_users/templates/registration/password_reset_subject.txt -> django_users-1.0/django_users/templates/registration
+copying django_users/tests/__init__.py -> django_users-1.0/django_users/tests
+copying django_users/tests/conftest.py -> django_users-1.0/django_users/tests
+copying django_users/tests/djangouserstestapp/__init__.py -> django_users-1.0/django_users/tests/djangouserstestapp
+copying django_users/tests/djangouserstestapp/apps.py -> django_users-1.0/django_users/tests/djangouserstestapp
+copying django_users/tests/djangouserstestapp/models.py -> django_users-1.0/django_users/tests/djangouserstestapp
+copying django_users/tests/djangouserstestapp/settings.py -> django_users-1.0/django_users/tests/djangouserstestapp
+copying django_users/tests/djangouserstestapp/urls.py -> django_users-1.0/django_users/tests/djangouserstestapp
+copying django_users/tests/functional_tests/__init__.py -> django_users-1.0/django_users/tests/functional_tests
+copying django_users/tests/functional_tests/features/__init__.py -> django_users-1.0/django_users/tests/functional_tests/features
+copying django_users/tests/functional_tests/features/conftest.py -> django_users-1.0/django_users/tests/functional_tests/features
+copying django_users/tests/functional_tests/features/login/__init__.py -> django_users-1.0/django_users/tests/functional_tests/features/login
+copying django_users/tests/functional_tests/features/login/login.feature -> django_users-1.0/django_users/tests/functional_tests/features/login
+copying django_users/tests/functional_tests/features/login/steps/__init__.py -> django_users-1.0/django_users/tests/functional_tests/features/login/steps
+copying django_users/tests/functional_tests/features/login/steps/conftest.py -> django_users-1.0/django_users/tests/functional_tests/features/login/steps
+copying django_users/tests/functional_tests/features/login/steps/test_login.py -> django_users-1.0/django_users/tests/functional_tests/features/login/steps
+copying django_users/tests/functional_tests/features/password_reset/__init__.py -> django_users-1.0/django_users/tests/functional_tests/features/password_reset
+copying django_users/tests/functional_tests/features/password_reset/password_reset.feature -> django_users-1.0/django_users/tests/functional_tests/features/password_reset
+copying django_users/tests/functional_tests/features/password_reset/steps/__init__.py -> django_users-1.0/django_users/tests/functional_tests/features/password_reset/steps
+copying django_users/tests/functional_tests/features/password_reset/steps/test_password_reset.py -> django_users-1.0/django_users/tests/functional_tests/features/password_reset/steps
+copying django_users/tests/functional_tests/features/register/__init__.py -> django_users-1.0/django_users/tests/functional_tests/features/register
+copying django_users/tests/functional_tests/features/register/register.feature -> django_users-1.0/django_users/tests/functional_tests/features/register
+copying django_users/tests/functional_tests/features/register/steps/test_register.py -> django_users-1.0/django_users/tests/functional_tests/features/register/steps
+copying django_users/tests/functional_tests/features/resend_confirmation/__init__.py -> django_users-1.0/django_users/tests/functional_tests/features/resend_confirmation
+copying django_users/tests/functional_tests/features/resend_confirmation/resend_confirmation.feature -> django_users-1.0/django_users/tests/functional_tests/features/resend_confirmation
+copying django_users/tests/functional_tests/features/resend_confirmation/steps/__init__.py -> django_users-1.0/django_users/tests/functional_tests/features/resend_confirmation/steps
+copying django_users/tests/functional_tests/features/resend_confirmation/steps/test_resend_confirmation.py -> django_users-1.0/django_users/tests/functional_tests/features/resend_confirmation/steps
+copying django_users/tests/unit_tests/__init__.py -> django_users-1.0/django_users/tests/unit_tests
+copying django_users/tests/unit_tests/conftest.py -> django_users-1.0/django_users/tests/unit_tests
+copying django_users/tests/unit_tests/test_forms.py -> django_users-1.0/django_users/tests/unit_tests
+copying django_users/tests/unit_tests/test_models.py -> django_users-1.0/django_users/tests/unit_tests
+copying django_users/tests/unit_tests/test_views.py -> django_users-1.0/django_users/tests/unit_tests
+Writing django_users-1.0/setup.cfg
+creating '.tox/dist/django_users-1.0.zip' and adding 'django_users-1.0' to it
+adding 'django_users-1.0'
+adding 'django_users-1.0/django_users'
+adding 'django_users-1.0/django_users.egg-info'
+adding 'django_users-1.0/LICENSE'
+adding 'django_users-1.0/MANIFEST.in'
+adding 'django_users-1.0/README.md'
+adding 'django_users-1.0/pyproject.toml'
+adding 'django_users-1.0/setup.cfg'
+adding 'django_users-1.0/setup.py'
+adding 'django_users-1.0/PKG-INFO'
+adding 'django_users-1.0/django_users/middleware'
+adding 'django_users-1.0/django_users/static'
+adding 'django_users-1.0/django_users/templates'
+adding 'django_users-1.0/django_users/tests'
+adding 'django_users-1.0/django_users/__init__.py'
+adding 'django_users-1.0/django_users/admin.py'
+adding 'django_users-1.0/django_users/apps.py'
+adding 'django_users-1.0/django_users/context_processors.py'
+adding 'django_users-1.0/django_users/fields.py'
+adding 'django_users-1.0/django_users/forms.py'
+adding 'django_users-1.0/django_users/models.py'
+adding 'django_users-1.0/django_users/tests.py'
+adding 'django_users-1.0/django_users/urls.py'
+adding 'django_users-1.0/django_users/views.py'
+adding 'django_users-1.0/django_users/middleware/__init__.py'
+adding 'django_users-1.0/django_users/static/django_users'
+adding 'django_users-1.0/django_users/static/django_users/css'
+adding 'django_users-1.0/django_users/static/django_users/css/balloons.css'
+adding 'django_users-1.0/django_users/templates/django_users'
+adding 'django_users-1.0/django_users/templates/emails'
+adding 'django_users-1.0/django_users/templates/fields'
+adding 'django_users-1.0/django_users/templates/registration'
+adding 'django_users-1.0/django_users/templates/django_users/base.html'
+adding 'django_users-1.0/django_users/templates/django_users/profile.html'
+adding 'django_users-1.0/django_users/templates/django_users/register.html'
+adding 'django_users-1.0/django_users/templates/django_users/registration_confirmation_sent.html'
+adding 'django_users-1.0/django_users/templates/django_users/resend_form.html'
+adding 'django_users-1.0/django_users/templates/emails/mail_body.html'
+adding 'django_users-1.0/django_users/templates/emails/mail_body.txt'
+adding 'django_users-1.0/django_users/templates/fields/users_app_file_input.html'
+adding 'django_users-1.0/django_users/templates/fields/users_app_floating_field.html'
+adding 'django_users-1.0/django_users/templates/registration/confirm.html'
+adding 'django_users-1.0/django_users/templates/registration/login.html'
+adding 'django_users-1.0/django_users/templates/registration/password_change_done.html'
+adding 'django_users-1.0/django_users/templates/registration/password_change_form.html'
+adding 'django_users-1.0/django_users/templates/registration/password_reset_complete.html'
+adding 'django_users-1.0/django_users/templates/registration/password_reset_confirm.html'
+adding 'django_users-1.0/django_users/templates/registration/password_reset_done.html'
+adding 'django_users-1.0/django_users/templates/registration/password_reset_email.html'
+adding 'django_users-1.0/django_users/templates/registration/password_reset_form.html'
+adding 'django_users-1.0/django_users/templates/registration/password_reset_subject.txt'
+adding 'django_users-1.0/django_users/tests/djangouserstestapp'
+adding 'django_users-1.0/django_users/tests/functional_tests'
+adding 'django_users-1.0/django_users/tests/unit_tests'
+adding 'django_users-1.0/django_users/tests/__init__.py'
+adding 'django_users-1.0/django_users/tests/conftest.py'
+adding 'django_users-1.0/django_users/tests/djangouserstestapp/__init__.py'
+adding 'django_users-1.0/django_users/tests/djangouserstestapp/apps.py'
+adding 'django_users-1.0/django_users/tests/djangouserstestapp/models.py'
+adding 'django_users-1.0/django_users/tests/djangouserstestapp/settings.py'
+adding 'django_users-1.0/django_users/tests/djangouserstestapp/urls.py'
+adding 'django_users-1.0/django_users/tests/functional_tests/features'
+adding 'django_users-1.0/django_users/tests/functional_tests/__init__.py'
+adding 'django_users-1.0/django_users/tests/functional_tests/features/login'
+adding 'django_users-1.0/django_users/tests/functional_tests/features/password_reset'
+adding 'django_users-1.0/django_users/tests/functional_tests/features/register'
+adding 'django_users-1.0/django_users/tests/functional_tests/features/resend_confirmation'
+adding 'django_users-1.0/django_users/tests/functional_tests/features/__init__.py'
+adding 'django_users-1.0/django_users/tests/functional_tests/features/conftest.py'
+adding 'django_users-1.0/django_users/tests/functional_tests/features/login/steps'
+adding 'django_users-1.0/django_users/tests/functional_tests/features/login/__init__.py'
+adding 'django_users-1.0/django_users/tests/functional_tests/features/login/login.feature'
+adding 'django_users-1.0/django_users/tests/functional_tests/features/login/steps/__init__.py'
+adding 'django_users-1.0/django_users/tests/functional_tests/features/login/steps/conftest.py'
+adding 'django_users-1.0/django_users/tests/functional_tests/features/login/steps/test_login.py'
+adding 'django_users-1.0/django_users/tests/functional_tests/features/password_reset/steps'
+adding 'django_users-1.0/django_users/tests/functional_tests/features/password_reset/__init__.py'
+adding 'django_users-1.0/django_users/tests/functional_tests/features/password_reset/password_reset.feature'
+adding 'django_users-1.0/django_users/tests/functional_tests/features/password_reset/steps/__init__.py'
+adding 'django_users-1.0/django_users/tests/functional_tests/features/password_reset/steps/test_password_reset.py'
+adding 'django_users-1.0/django_users/tests/functional_tests/features/register/steps'
+adding 'django_users-1.0/django_users/tests/functional_tests/features/register/__init__.py'
+adding 'django_users-1.0/django_users/tests/functional_tests/features/register/register.feature'
+adding 'django_users-1.0/django_users/tests/functional_tests/features/register/steps/test_register.py'
+adding 'django_users-1.0/django_users/tests/functional_tests/features/resend_confirmation/steps'
+adding 'django_users-1.0/django_users/tests/functional_tests/features/resend_confirmation/__init__.py'
+adding 'django_users-1.0/django_users/tests/functional_tests/features/resend_confirmation/resend_confirmation.feature'
+adding 'django_users-1.0/django_users/tests/functional_tests/features/resend_confirmation/steps/__init__.py'
+adding 'django_users-1.0/django_users/tests/functional_tests/features/resend_confirmation/steps/test_resend_confirmation.py'
+adding 'django_users-1.0/django_users/tests/unit_tests/__init__.py'
+adding 'django_users-1.0/django_users/tests/unit_tests/conftest.py'
+adding 'django_users-1.0/django_users/tests/unit_tests/test_forms.py'
+adding 'django_users-1.0/django_users/tests/unit_tests/test_models.py'
+adding 'django_users-1.0/django_users/tests/unit_tests/test_views.py'
+adding 'django_users-1.0/django_users.egg-info/PKG-INFO'
+adding 'django_users-1.0/django_users.egg-info/SOURCES.txt'
+adding 'django_users-1.0/django_users.egg-info/dependency_links.txt'
+adding 'django_users-1.0/django_users.egg-info/top_level.txt'
+removing 'django_users-1.0' (and everything under it)

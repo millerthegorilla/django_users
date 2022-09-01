@@ -33,7 +33,7 @@ ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
 # Application definition
 
 INSTALLED_APPS = [
-    "django_users.tests.djangouserstestapp.apps.DjangoUsersTestAppConfig",
+    "tests.djangouserstestapp.apps.DjangoUsersTestAppConfig",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",

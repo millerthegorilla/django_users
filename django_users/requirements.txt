@@ -7,3 +7,4 @@ django-crispy-forms==1.14.0
 crispy_bootstrap5==0.6
 # python-levenshtein requires gcc and python3-devel to be installed on the host
 python-Levenshtein==0.12.2
+faker

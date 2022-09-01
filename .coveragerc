@@ -13,6 +13,9 @@ source = .
 
 branch = True
 
+plugins = django_coverage_plugin
+
+
 [report]
 fail_under = 100
 show_missing = True
