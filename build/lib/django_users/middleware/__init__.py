@@ -1,8 +1,9 @@
+import re
 from datetime import datetime
-from django.shortcuts import redirect
+
 from django.contrib import messages
 from django.contrib.auth import logout
-import re
+from django.shortcuts import redirect
 
 
 class ReauthenticateMiddleware:

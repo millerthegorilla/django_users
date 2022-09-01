@@ -1,9 +1,9 @@
-import settings
 import re
 from typing import Dict
 
-from django.test import TestCase, RequestFactory
-from django.contrib.auth import get_user, get_user_model, authenticate, login
+import settings
+from django.contrib.auth import authenticate, get_user, get_user_model, login
+from django.test import RequestFactory, TestCase
 from django.urls import reverse
 
 print("***running django_users tests...***")
@@ -102,12 +102,14 @@ class DashboardTests(TestCase):
 
     def test_user_logged_out_redirect(self) -> None:
         """
-            A user that isn't logged in should be redirected from dashboard to login
+            A user that isn't logged in should be redirected from 
+            dashboard to login
         """
         response = self.client.get(reverse('dashboard'))
         self.assertRedirects(
             response=response,
-            expected_url='/users/accounts/login/?next=/users/accounts/dashboard/',
+            expected_url=('/users/accounts/login/?next='
+                          '/users/accounts/dashboard/'),
             status_code=302,
             target_status_code=200,
             msg_prefix='',

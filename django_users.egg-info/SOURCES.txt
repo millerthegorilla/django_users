@@ -4,6 +4,8 @@ README.md
 pyproject.toml
 setup.cfg
 setup.py
+./django_users/requirements.txt
+./django_users/requirements_test.txt
 django_users/__init__.py
 django_users/admin.py
 django_users/apps.py
