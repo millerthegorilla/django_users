@@ -19,6 +19,7 @@ django_users/views.py
 django_users.egg-info/PKG-INFO
 django_users.egg-info/SOURCES.txt
 django_users.egg-info/dependency_links.txt
+django_users.egg-info/requires.txt
 django_users.egg-info/top_level.txt
 django_users/__pycache__/__init__.cpython-310.pyc
 django_users/middleware/__init__.py
