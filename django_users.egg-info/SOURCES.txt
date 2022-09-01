@@ -40,13 +40,6 @@ django_users/templates/registration/password_reset_done.html
 django_users/templates/registration/password_reset_email.html
 django_users/templates/registration/password_reset_form.html
 django_users/templates/registration/password_reset_subject.txt
-django_users/testapp/__init__.py
-django_users/testapp/apps.py
-django_users/testapp/models.py
-django_users/testapp/requirements.txt
-django_users/testapp/requirements_test.txt
-django_users/testapp/settings.py
-django_users/testapp/urls.py
 django_users/tests/__init__.py
 django_users/tests/conftest.py
 django_users/tests/functional_tests/__init__.py
@@ -68,6 +61,13 @@ django_users/tests/functional_tests/features/resend_confirmation/__init__.py
 django_users/tests/functional_tests/features/resend_confirmation/resend_confirmation.feature
 django_users/tests/functional_tests/features/resend_confirmation/steps/__init__.py
 django_users/tests/functional_tests/features/resend_confirmation/steps/test_resend_confirmation.py
+django_users/tests/testapp/__init__.py
+django_users/tests/testapp/apps.py
+django_users/tests/testapp/models.py
+django_users/tests/testapp/requirements.txt
+django_users/tests/testapp/requirements_test.txt
+django_users/tests/testapp/settings.py
+django_users/tests/testapp/urls.py
 django_users/tests/unit_tests/__init__.py
 django_users/tests/unit_tests/conftest.py
 django_users/tests/unit_tests/test_forms.py
