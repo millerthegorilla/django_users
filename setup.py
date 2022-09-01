@@ -1,7 +1,5 @@
 from setuptools import setup
 
-setup()
-
 install_requires = [
     "django>=4.0.1",
     "django_email_verification>=0.2.2",
@@ -12,6 +10,7 @@ install_requires = [
     "crispy_bootstrap5>=0.6",
     "python-Levenshtein>=0.12.2",
     "faker>=14.2",
+    "django-recaptcha>=3.0.0",
     "pytest>=7.1.2",
     "seleniumbase>=4.2.0",
     "pytest-mock>=3.8.2",
@@ -22,3 +21,5 @@ install_requires = [
     "pytest-bdd>=6.0.1",
     "pytest-xdist>=2.5.0",
 ]
+
+setup()
