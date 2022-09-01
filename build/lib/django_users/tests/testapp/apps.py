@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class DjangoUsersTestAppConfig(AppConfig):
-    name = "django_users.tests.djangouserstestapp"
-    verbose_name = "DjangoUsersTestAppConfig"
+class TestAppConfig(AppConfig):
+    name = "django_users.tests.testapp"
+    verbose_name = "TestApp"

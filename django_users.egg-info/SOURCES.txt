@@ -19,6 +19,7 @@ django_users.egg-info/SOURCES.txt
 django_users.egg-info/dependency_links.txt
 django_users.egg-info/requires.txt
 django_users.egg-info/top_level.txt
+django_users/__pycache__/__init__.cpython-310.pyc
 django_users/middleware/__init__.py
 django_users/static/django_users/css/balloons.css
 django_users/templates/django_users/base.html
@@ -42,6 +43,10 @@ django_users/templates/registration/password_reset_form.html
 django_users/templates/registration/password_reset_subject.txt
 django_users/tests/__init__.py
 django_users/tests/conftest.py
+django_users/tests/settings.py
+django_users/tests/__pycache__/__init__.cpython-310.pyc
+django_users/tests/__pycache__/conftest.cpython-310-pytest-7.1.2.pyc
+django_users/tests/__pycache__/settings.cpython-310.pyc
 django_users/tests/functional_tests/__init__.py
 django_users/tests/functional_tests/features/__init__.py
 django_users/tests/functional_tests/features/conftest.py
@@ -66,8 +71,10 @@ django_users/tests/testapp/apps.py
 django_users/tests/testapp/models.py
 django_users/tests/testapp/requirements.txt
 django_users/tests/testapp/requirements_test.txt
-django_users/tests/testapp/settings.py
 django_users/tests/testapp/urls.py
+django_users/tests/testapp/__pycache__/__init__.cpython-310.pyc
+django_users/tests/testapp/__pycache__/apps.cpython-310.pyc
+django_users/tests/testapp/__pycache__/models.cpython-310.pyc
 django_users/tests/unit_tests/__init__.py
 django_users/tests/unit_tests/conftest.py
 django_users/tests/unit_tests/test_forms.py

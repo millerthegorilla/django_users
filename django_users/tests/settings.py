@@ -33,7 +33,6 @@ ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
 # Application definition
 
 INSTALLED_APPS = [
-    "django_users.tests.testapp.apps.DjangoUsersTestAppConfig",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -44,6 +43,7 @@ INSTALLED_APPS = [
     "crispy_bootstrap5",
     "captcha",
     "django_email_verification",
+    "django_users.tests.testapp.apps.TestAppConfig",
 ]
 
 MIDDLEWARE = [
