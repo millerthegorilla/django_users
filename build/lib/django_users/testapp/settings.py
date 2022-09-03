@@ -14,7 +14,8 @@ import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent
+
 
 # for context processor
 BASE_HTML = "django_users/base.html"
@@ -30,10 +31,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
 
+STATIC_URL = "/static/"
 # Application definition
 
 INSTALLED_APPS = [
-    "django_users.testapp.apps.DjangoUsersTestAppConfig",
+    "django_users",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -56,7 +58,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = "django_users_test_project.urls"
+ROOT_URLCONF = "django_users.testapp.urls"
 
 TEMPLATES = [
     {
@@ -136,9 +138,9 @@ EMAIL_FROM_ADDRESS = "noreply@django_users.com"
 EMAIL_MAIL_SUBJECT = "Confirm your email"
 EMAIL_MAIL_HTML = "emails/mail_body.html"
 EMAIL_MAIL_PLAIN = "emails/mail_body.txt"
-EMAIL_PAGE_TEMPLATE = "registration/confirm.html"
+EMAIL_MAIL_PAGE_TEMPLATE = "registration/confirm.html"
 EMAIL_PAGE_DOMAIN = "http://127.0.0.1:8000"
-EMAIL_TOKEN_LIFE = 60 * 60 * 24
+EMAIL_MAIL_TOKEN_LIFE = 60 * 60 * 24
 CUSTOM_SALT = "asdfasdfasdffasdfa234234"
 
 ## RECAPTCHA SETTINGS
