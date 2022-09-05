@@ -21,6 +21,11 @@ Feature: Registration page
         And User is able to see registration confirmation page
 
 
+    Scenario: App fails to register invalid token
+        Given User opens invalid link
+        Then error is shown in template
+
+
     Scenario: User can visit the resend confirmation page
         Given User is on registration page
         When User clicks resend confirmation link

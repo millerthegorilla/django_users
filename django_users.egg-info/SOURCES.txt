@@ -81,8 +81,10 @@ django_users/tests/functional_tests/features/resend_confirmation/steps/__pycache
 django_users/tests/unit_tests/conftest.py
 django_users/tests/unit_tests/test_forms.py
 django_users/tests/unit_tests/test_models.py
+django_users/tests/unit_tests/test_templates.py
 django_users/tests/unit_tests/test_views.py
 django_users/tests/unit_tests/__pycache__/conftest.cpython-310-pytest-7.1.2.pyc
 django_users/tests/unit_tests/__pycache__/test_forms.cpython-310-pytest-7.1.2.pyc
 django_users/tests/unit_tests/__pycache__/test_models.cpython-310-pytest-7.1.2.pyc
+django_users/tests/unit_tests/__pycache__/test_templates.cpython-310-pytest-7.1.2.pyc
 django_users/tests/unit_tests/__pycache__/test_views.cpython-310-pytest-7.1.2.pyc

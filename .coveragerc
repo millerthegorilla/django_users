@@ -8,6 +8,11 @@ omit = django_users/tests/*
 	   *setup.py
 	   *fields.py
 	   *tests.py
+	   venv/*
+	   *testapp/*
+	   *build/lib/*
+	   django_users.egg-info/*
+	   django_users/context_processors.py
 
 source = .
 

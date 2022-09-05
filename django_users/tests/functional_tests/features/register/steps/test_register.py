@@ -1,10 +1,5 @@
 """Registration page feature tests."""
-import random
-import time
-
-import pytest
 from django.contrib.auth import get_user_model
-from django.core import mail
 from pytest_bdd import given, scenarios, then, when
 from selenium.webdriver.common.by import By
 
@@ -129,3 +124,25 @@ def user_enters_incorrect_email_address(page):
 @then("invalid email message is visible")
 def invalid_email_message_is_visible(page):
     page.assert_element("#error_1_id_email", by=By.CSS_SELECTOR)
+
+
+@given("User opens invalid link", target_fixture="page")
+def user_opens_invalid_link(browser, db):
+    browser.open(
+        browser.domain
+        + (
+            "/email"
+            "/email"
+            "/eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9"
+            ".eyJlbWFpbCI6IkphbWVzX0RhdmlzQGFuZHJl"
+            "d3MuaW5mbyIsImV4cCI6MTY2MjQ3MDA4MC45N"
+            "jU2NDIsImtpbmQiOiJNQUlMIn0.YgGUFEbi_Q"
+            "mgIbLyRqy5icqxkzn8EelQiy9OXYegOws"
+        )
+    )
+    return browser
+
+
+@then("error is shown in template")
+def error_is_shown_in_template(page):
+    assert "You tried to register with an invalid token!" in page.get_page_source()

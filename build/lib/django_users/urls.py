@@ -7,11 +7,11 @@ from . import views as users_views
 
 urlpatterns = [
     urls.path(
-        "accounts/login/",
+        "login/",
         auth_views.LoginView.as_view(redirect_authenticated_user=True),
     ),
     urls.path(
-        "accounts/password_reset/",
+        "password_reset/",
         auth_views.PasswordResetView.as_view(
             template_name="django_users/resend_form.html",
             form_class=users_forms.UserPasswordReset,
@@ -21,17 +21,17 @@ urlpatterns = [
         name="password_reset",
     ),
     urls.path(
-        "accounts/registration_confirmation_sent/",
+        "registration_confirmation_sent/",
         users_views.ConfirmSent.as_view(
             template_name="django_users/registration_confirmation_sent.html"
         ),
         name="confirmation_sent",
     ),
     urls.path(
-        "accounts/resend_confirmation/",
+        "resend_confirmation/",
         users_views.ResendConfirmation.as_view(),
         name="resend_confirmation",
     ),
-    urls.path("accounts/register/", users_views.Register.as_view(), name="register"),
-    urls.path("accounts/profile/", users_views.Profile.as_view(), name="profile"),
+    urls.path("register/", users_views.Register.as_view(), name="register"),
+    urls.path("profile/", users_views.Profile.as_view(), name="profile"),
 ]
