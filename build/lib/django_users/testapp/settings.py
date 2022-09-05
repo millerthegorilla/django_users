@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 import os
 from pathlib import Path
+from django import urls
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -31,7 +32,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
 
-STATIC_URL = "/static/"
 # Application definition
 
 INSTALLED_APPS = [
@@ -59,6 +59,9 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = "django_users.testapp.urls"
+LOGIN_URL = urls.reverse_lazy("login")
+LOGIN_REDIRECT_URL = urls.reverse_lazy("profile")
+STATIC_URL = "/static/"
 
 TEMPLATES = [
     {
