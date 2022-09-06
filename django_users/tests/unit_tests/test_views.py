@@ -35,7 +35,7 @@ def test_register_view(validate_captcha, user_details, db):
     _view = user_views.Register()
     response = _view.form_valid(_form)
     assert response.status_code == 302
-    assert response.url == "/accounts/registration_confirmation_sent/"
+    assert response.url == reverse("confirmation_sent")
 
 
 def test_resend_confirmation_view(validate_captcha, user):
@@ -46,7 +46,7 @@ def test_resend_confirmation_view(validate_captcha, user):
     _view = user_views.ResendConfirmation()
     response = _view.form_valid(_form)
     assert response.status_code == 302
-    assert response.url == "/accounts/registration_confirmation_sent/"
+    assert response.url == reverse("confirmation_sent")
 
 
 def test_confirm_sent(rf):
