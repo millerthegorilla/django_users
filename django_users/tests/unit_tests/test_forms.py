@@ -1,4 +1,3 @@
-import pytest
 from django.forms.models import model_to_dict
 
 from django_users import forms as user_forms

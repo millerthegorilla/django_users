@@ -1,6 +1,4 @@
 """Login page feature tests."""
-import pytest
-from django.contrib.auth import get_user_model
 from pytest_bdd import given, parsers, scenarios, then, when
 
 EXTRA_TYPES = {
