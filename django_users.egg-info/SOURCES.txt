@@ -11,7 +11,6 @@ django_users/context_processors.py
 django_users/fields.py
 django_users/forms.py
 django_users/models.py
-django_users/tests.py
 django_users/urls.py
 django_users/views.py
 django_users.egg-info/PKG-INFO
@@ -53,7 +52,6 @@ django_users/testapp/__init__.py
 django_users/testapp/apps.py
 django_users/testapp/models.py
 django_users/testapp/requirements.txt
-django_users/testapp/requirements_test.txt
 django_users/testapp/settings.py
 django_users/testapp/urls.py
 django_users/testapp/__pycache__/__init__.cpython-310.pyc
