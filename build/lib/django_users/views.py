@@ -34,7 +34,7 @@ class ResendConfirmation(generic.FormView):
     template_name = "django_users/resend_form.html"
     extra_context = {"instructions": "Resend confirmation token"}
     form_class = users_forms.UserResendConfirmation
-    success_url = urls.reverse_lazy("confirmation_sent")
+    success_url = urls.reverse_lazy("django_users:confirmation_sent")
 
     def post(self, request):
         if settings.DEBUG:
