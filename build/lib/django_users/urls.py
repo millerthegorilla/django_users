@@ -14,6 +14,11 @@ urlpatterns = [
         name="login",
     ),
     urls.path(
+        "logout/",
+        auth_views.LogoutView.as_view(),
+        name="logout",
+    ),
+    urls.path(
         "password_reset/",
         auth_views.PasswordResetView.as_view(
             template_name="django_users/resend_form.html",
