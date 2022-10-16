@@ -14,7 +14,7 @@ class Register(generic.edit.CreateView):
     http_method_names = ["get", "post"]
     template_name = "django_users/register.html"
     form_class = users_forms.CustomUserCreation
-    success_url = urls.reverse_lazy("confirmation_sent")
+    success_url = urls.reverse_lazy("django_users:confirmation_sent")
     model = auth.get_user_model()
 
     def post(self, request) -> http.HttpResponseRedirect:
