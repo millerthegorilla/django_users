@@ -32,7 +32,7 @@ class CustomUserCreation(auth.forms.UserCreationForm):
         super().__init__(*args, **kwargs)
         self.helper = helper.FormHelper()
         self.helper.form_method = "post"
-        self.helper.form_action = urls.reverse_lazy("register")
+        self.helper.form_action = urls.reverse_lazy("django_users:register")
         self.helper.form_tag = False
         self.helper.form_class = ""
         self.helper.layout = layout.Layout(

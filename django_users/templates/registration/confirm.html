@@ -12,7 +12,7 @@
 				{% if success %} 
 					<h2>Congratulations <span class="text-white">{{ user.username }}...</span><br>
 						<span class="message ps-5">your account is confirmed!</span></h2><br>
-					<span><h4><a class="text-white" href="{% url 'logout' %}?next={% url 'login' %}">Login</a></h4></span>
+					<span><h4><a class="text-white" href="{% url 'django_users:logout' %}?next={% url 'django_users:login' %}">Login</a></h4></span>
 					<div class="balloons">
 						<div class="balloon"></div>
 						<div class="balloon"></div>
