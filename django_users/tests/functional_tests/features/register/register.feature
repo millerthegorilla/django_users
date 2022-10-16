@@ -10,7 +10,7 @@ Feature: Registration page
         And I should see the resend confirmation link
         And I should see a submit button
 
-
+    @locutus
     Scenario: Register to use application
         Given User is on registration page
         When User completes valid details

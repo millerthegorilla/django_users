@@ -1,5 +1,6 @@
 Feature: Resend confirmation page
 
+    @locutus
     Scenario: User can resend confirmation token
         Given User is on resend confirmation page
         When User enters valid username

@@ -75,7 +75,6 @@ django_users/tests/functional_tests/features/register/steps/__pycache__/test_reg
 django_users/tests/functional_tests/features/resend_confirmation/resend_confirmation.feature
 django_users/tests/functional_tests/features/resend_confirmation/steps/test_resend_confirmation.py
 django_users/tests/functional_tests/features/resend_confirmation/steps/__pycache__/test_resend_confirmation.cpython-310-pytest-7.1.2.pyc
-django_users/tests/unit_tests/conftest.py
 django_users/tests/unit_tests/test_forms.py
 django_users/tests/unit_tests/test_models.py
 django_users/tests/unit_tests/test_templates.py

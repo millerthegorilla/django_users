@@ -9,15 +9,15 @@ from selenium.webdriver.common.by import By
 
 RECAPTCHA_SLEEP_INTERVAL = 3
 
-REGISTER_URL = reverse("register")
+REGISTER_URL = reverse("django_users:register")
 try:
     LANDING_URL = settings.LOGIN_REDIRECT
 except AttributeError:
     LANDING_URL = "/accounts/profile/"
-CONFIRMATION_URL = reverse("confirmation_sent")
-LOGIN_URL = reverse("login")
-RESEND_CONFIRM_URL = reverse("resend_confirmation")
-PASSWORD_RESET_URL = reverse("password_reset")
+CONFIRMATION_URL = reverse("django_users:confirmation_sent")
+LOGIN_URL = reverse("django_users:login")
+RESEND_CONFIRM_URL = reverse("django_users:resend_confirmation")
+PASSWORD_RESET_URL = reverse("django_users:password_reset")
 PASSWORD_RESET_DONE_URL = reverse("password_reset_done")
 PASSWORD_RESET_CONFIRM_URL = "accounts/reset/Ng/set-password/"
 PASSWORD_RESET_COMPLETE_URL = reverse("password_reset_complete")

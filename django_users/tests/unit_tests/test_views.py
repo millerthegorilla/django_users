@@ -6,20 +6,20 @@ from django_users import views as user_views
 
 
 def test_uses_login_template(client):
-    response = client.get(reverse("login"))
+    response = client.get(reverse("django_users:login"))
     assert response.status_code == 200
     assertTemplateUsed(response, "registration/login.html")
 
 
 def test_uses_profile_template(auto_login_user, active_user):
     client, user = auto_login_user(active_user)
-    response = client.get(reverse("profile"))
+    response = client.get(reverse("django_users:profile"))
     assert response.status_code == 200
     assertTemplateUsed(response, "django_users/profile.html")
 
 
 def test_uses_registration_template(client):
-    response = client.get(reverse("register"))
+    response = client.get(reverse("django_users:register"))
     assert response.status_code == 200
     assertTemplateUsed(response, "django_users/register.html")
 
@@ -35,7 +35,7 @@ def test_register_view(validate_captcha, user_details, db):
     _view = user_views.Register()
     response = _view.form_valid(_form)
     assert response.status_code == 302
-    assert response.url == reverse("confirmation_sent")
+    assert response.url == reverse("django_users:confirmation_sent")
 
 
 def test_resend_confirmation_view(validate_captcha, user):
@@ -46,12 +46,12 @@ def test_resend_confirmation_view(validate_captcha, user):
     _view = user_views.ResendConfirmation()
     response = _view.form_valid(_form)
     assert response.status_code == 302
-    assert response.url == reverse("confirmation_sent")
+    assert response.url == reverse("django_users:confirmation_sent")
 
 
 def test_confirm_sent(rf):
     _view = user_views.ConfirmSent()
-    request = rf.get(reverse("confirmation_sent"))
+    request = rf.get(reverse("django_users:confirmation_sent"))
     response = _view.get(request)
     assert response.status_code == 200
     assert "Email Sent" in response.getvalue().decode()
