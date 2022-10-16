@@ -46,9 +46,11 @@ INSTALLED_APPS = [
     "crispy_bootstrap5",
     "captcha",
     "django_email_verification",
+    "debug_toolbar",
 ]
 
 MIDDLEWARE = [
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -81,6 +83,13 @@ TEMPLATES = [
     },
 ]
 
+# debug toolbar
+INTERNAL_IPS = [
+    # ...
+    "127.0.0.1",
+    # ...
+]
+
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
@@ -88,7 +97,10 @@ TEMPLATES = [
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
-        "NAME": "mem_db",
+        "NAME": "db.sqlite3",
+        "TEST": {
+            "NAME": "testdb.sqlite3",
+        },
     }
 }
 
@@ -133,7 +145,7 @@ def verified_callback(user):
     user.is_active = True
 
 
-EMAIL_BACKEND = "django.core.mail.backends.locmem.EmailBackend"  # "django.core.mail.backends.console.EmailBackend"  # noqa: E501
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"  # "django.core.mail.backends.locmem.EmailBackend"  # noqa: E501
 EMAIL_VERIFIED_CALLBACK = verified_callback
 EMAIL_ACTIVE_FIELD = "is_active"
 EMAIL_HOST_USER = "test@django_users.com"

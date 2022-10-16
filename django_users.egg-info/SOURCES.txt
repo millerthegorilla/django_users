@@ -24,7 +24,6 @@ django_users/__pycache__/apps.cpython-310.pyc
 django_users/__pycache__/context_processors.cpython-310.pyc
 django_users/__pycache__/forms.cpython-310.pyc
 django_users/__pycache__/models.cpython-310.pyc
-django_users/__pycache__/tests.cpython-310.pyc
 django_users/__pycache__/urls.cpython-310.pyc
 django_users/__pycache__/views.cpython-310.pyc
 django_users/middleware/__init__.py
@@ -50,6 +49,7 @@ django_users/templates/registration/password_reset_form.html
 django_users/templates/registration/password_reset_subject.txt
 django_users/testapp/__init__.py
 django_users/testapp/apps.py
+django_users/testapp/manage.py
 django_users/testapp/models.py
 django_users/testapp/requirements.txt
 django_users/testapp/settings.py
@@ -58,7 +58,6 @@ django_users/testapp/__pycache__/__init__.cpython-310.pyc
 django_users/testapp/__pycache__/settings.cpython-310.pyc
 django_users/testapp/__pycache__/urls.cpython-310.pyc
 django_users/tests/conftest.py
-django_users/tests/__pycache__/__init__.cpython-310.pyc
 django_users/tests/__pycache__/conftest.cpython-310-pytest-7.1.2.pyc
 django_users/tests/functional_tests/features/conftest.py
 django_users/tests/functional_tests/features/__pycache__/conftest.cpython-310-pytest-7.1.2.pyc

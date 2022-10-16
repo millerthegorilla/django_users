@@ -68,7 +68,7 @@ Feature: Registration page
         And User enters valid password1
         And User enters valid password2
         And clicks on submit button
-        Then required warning is visible
+        Then captcha warning is visible
 
 
     Scenario: User email is validated correctly

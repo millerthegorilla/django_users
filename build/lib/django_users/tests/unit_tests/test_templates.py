@@ -14,7 +14,7 @@ class TemplatesTest(TestCase):
         """Templates can compile properly and there's no mismatched tags"""
         # get app template dirs
         template_dirs = []
-        apps = [app for app in settings.INSTALLED_APPS if app.startswith("rh2")]
+        apps = [app for app in settings.INSTALLED_APPS if not app.startswith("debug")]
         for app in apps:
             mod = import_module(app)
             template_dirs.append(path.join(path.dirname(mod.__file__), "templates"))

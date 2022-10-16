@@ -7,7 +7,7 @@ from django.urls import reverse
 from pytest_bdd import then, when
 from selenium.webdriver.common.by import By
 
-RECAPTCHA_SLEEP_INTERVAL = 2
+RECAPTCHA_SLEEP_INTERVAL = 3
 
 REGISTER_URL = reverse("register")
 try:
@@ -143,11 +143,33 @@ def required_warning_is_visible(page):
     page.assert_element("input:required", by=By.CSS_SELECTOR)
 
 
+@then("captcha warning is visible")
+def captcha_warning_is_visible(page):
+    page.assert_element("#error_1_id_captcha", by=By.CSS_SELECTOR)
+
+
 @when("User enters valid username")
-def user_enters_valid_username(page, user_details):
-    page.type("#id_username", user_details.username)
+def user_enters_valid_username(page, user):
+    page.type("#id_username", user.username)
 
 
 @when("User enters valid email address")
 def user_enters_valid_email_address(page, user_details):
     page.type("#id_email", user_details.email)
+
+
+@then("an email is sent to the user's email address", target_fixture="confirm_link")
+def an_email_is_sent_to_the_users_email_addresss(
+    mailoutbox, user_details, request, page, settings
+):
+    m = mailoutbox[0]
+    assert m.subject == "Confirm your email"
+    assert m.from_email == settings.EMAIL_FROM_ADDRESS
+    assert list(m.to) == [user_details.email]
+    return m.extra_headers["LINK"]
+
+
+@then("User is able to follow email link to successfully register")
+def user_is_able_to_successfully_register(confirm_link, sb):
+    sb.open(confirm_link)
+    sb.assert_text("your account is confirmed", selector=".message", by=By.CSS_SELECTOR)
