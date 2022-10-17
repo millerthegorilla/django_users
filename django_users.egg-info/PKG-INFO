@@ -3,11 +3,11 @@ Name: django-users
 Version: 0.0.1
 Summary: A simple django app that includes basic user auth
 Home-page: https://github.com/millerthegorilla/django_users
-Download-URL: 
 Author: James Miller
 Author-email: jamesstewartmiller@gmail.com
 License: MIT
 Keywords: django,django_users,user app
+Platform: UNKNOWN
 Classifier: DevelopmentStatus::2-Pre-Alpha
 Classifier: Framework::Django CMS
 Classifier: Framework::Django::4.0
@@ -94,3 +94,5 @@ django-crispy-forms==1.11.2
 django-email-verification==0.1.0
 django-password-validators==1.4.0
 django-recaptcha==2.0.6
+
+
