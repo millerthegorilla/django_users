@@ -2,9 +2,7 @@ import os
 from collections import OrderedDict
 import importlib
 
-import django
-
-from django.apps import apps
+from django.apps import apps, AppConfig
 from django.conf import settings
 
 from crispy_forms import templates as crispy_templates
@@ -20,7 +18,7 @@ APPS = [
 ]
 
 
-class DjangoUsers(django.apps.AppConfig):
+class DjangoUsers(AppConfig):
     default_auto_field = "django.db.models.BigAutoField"
     name = "django_users"
 
