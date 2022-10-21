@@ -20,7 +20,7 @@ from django_users import urls as django_users_urls
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("users/accounts/", include(django_users_urls)),
-    path("users/accounts/", include("django.contrib.auth.urls")),
+    path("", include(django_users_urls)),
+    path("", include("django.contrib.auth.urls")),
     path("__debug__/", include("debug_toolbar.urls")),
 ]

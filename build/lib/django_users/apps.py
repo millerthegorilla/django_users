@@ -41,4 +41,6 @@ class DjangoUsers(django.apps.AppConfig):
 
         root_url = importlib.import_module(settings.ROOT_URLCONF)
         if urls.path("email/", urls.include(email_urls)) not in root_url.urlpatterns:
-            root_url.urlpatterns.append(urls.path("email/", urls.include(email_urls)))
+            root_url.urlpatterns.append(
+                urls.path("email/", urls.include(email_urls)),
+            )
