@@ -23,7 +23,7 @@ class DjangoUsersConfig(AppConfig):
     default_auto_field = "django.db.models.BigAutoField"
     name = "django_users"
 
-    def ready(self) -> None:
+def ready(self) -> None:
         global my_apps
         try:
             if not settings.TOPLEVELCONFIG:
@@ -52,31 +52,29 @@ class DjangoUsersConfig(AppConfig):
                 apps.app_configs = OrderedDict()
                 apps.apps_ready = apps.models_ready = apps.loading = apps.ready = False
                 apps.clear_cache()
-                apps.populate(settings.INSTALLED_APPS)
                 if app["templates"] != "":
                     settings.TEMPLATES[0]["DIRS"].append(
                         os.path.abspath(app["templates"].__path__._path[0])
                     )
+                static = os.path.abspath(
+                    importlib.import_module(app["name"]).__path__[0] + "/static/"
+                )
+                if os.path.isdir(static):
+                    settings.STATICFILES_DIRS += [static]
+                apps.populate(settings.INSTALLED_APPS)
                 if "setup" in app:
                     app["setup"]()
-        # static = os.path.abspath(
-        #     importlib.import_module(app["name"]).__path__[0] + "/static/"
-        # )
-        # if os.path.isdir(static):
-        #     sdir = True
-        #     settings.STATICFILES_DIRS += [static]
+        try:
+            self.setup_apps()
+        except AttributeError:
+            pass
 
-        # if sdir:
-        #     call_command("collectstatic", verbosity=0, interactive=False)
-        setup_apps()
+    def setup_apps(self):
+        from django_email_verification import urls as email_urls  # include the urls
+        from django import urls
 
-
-def setup_apps():
-    from django_email_verification import urls as email_urls  # include the urls
-    from django import urls
-
-    root_url = importlib.import_module(settings.ROOT_URLCONF)
-    if urls.path("email/", urls.include(email_urls)) not in root_url.urlpatterns:
-        root_url.urlpatterns.append(
-            urls.path("email/", urls.include(email_urls)),
-        )
+        root_url = importlib.import_module(settings.ROOT_URLCONF)
+        if urls.path("email/", urls.include(email_urls)) not in root_url.urlpatterns:
+            root_url.urlpatterns.append(
+                urls.path("email/", urls.include(email_urls)),
+            )
